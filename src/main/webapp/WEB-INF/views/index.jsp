@@ -9,5 +9,6 @@
 <body>
 	<h2>Hello World!!~~</h2>
 	<a href="${path}/board/boardfile">게시판</a>
+	<h2>Hello java</h2>
 </body>
 </html>
