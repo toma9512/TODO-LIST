@@ -43,13 +43,13 @@ public class BoardController {
 	private EntityManager entityManager;
 	
 	// mac
-	private static final String UPLOAD_DIR = "/Users/heewon/upload/";
+//	private static final String UPLOAD_DIR = "/Users/heewon/upload/";
 	
 	// 윈도우 `111
 //	private static final String UPLOAD_DIR = "C:/upload/";
 	
 	// 리눅스
-//	private static final String UPLOAD_DIR = "/opt/tomcat9/upload/";
+	private static final String UPLOAD_DIR = "/opt/tomcat9/upload/";
 	
 	@GetMapping("/boardfile")
 	public String boardList(Model model) { // 여기 한번 수정 
@@ -92,17 +92,17 @@ public class BoardController {
 		String filePath = null;
 		
 		// 윈도우
-		File uploadDir = new File(UPLOAD_DIR);
-		if(!uploadDir.exists()) {
-			uploadDir.mkdirs();
-		}
-		
-//		try {
-//			createDirectoryWithPermissions(UPLOAD_DIR);
-//		} catch(IOException e) {
-//			e.printStackTrace();
-//			return "error";
+//		File uploadDir = new File(UPLOAD_DIR);
+//		if(!uploadDir.exists()) {
+//			uploadDir.mkdirs();
 //		}
+		
+		try {
+			createDirectoryWithPermissions(UPLOAD_DIR);
+		} catch(IOException e) {
+			e.printStackTrace();
+			return "error";
+		}
 		
 		if(file != null && !file.isEmpty()) {
 			try {
